@@ -2,6 +2,7 @@ Click
 Flask
 itsdangerous
 Jinja2
+markdown
 MarkupSafe
 passgenerator
 Werkzeug

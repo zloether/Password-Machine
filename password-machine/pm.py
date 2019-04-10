@@ -12,18 +12,31 @@
 # -----------------------------------------------------------------------------
 # Imports
 # -----------------------------------------------------------------------------
-from flask import Flask, request
+from flask import Flask, request, render_template, Markup, url_for
+import markdown
 import passgenerator
+import os.path
+
+
+# -----------------------------------------------------------------------------
+# Variables
+# -----------------------------------------------------------------------------
 app = Flask(__name__)
+app_path = os.path.dirname(os.path.realpath(__file__))
+templates_folder = os.path.join(app_path, 'templates')
+index_md = os.path.join(templates_folder, 'index.md')
 
 
 
 # -----------------------------------------------------------------------------
-# methods
+# Methods
 # -----------------------------------------------------------------------------
 @app.route("/")
-def hello():
-    return "Hello World!"
+def index():
+    with open(index_md, 'r') as f:
+        content = f.read()
+    content = Markup(markdown.markdown(content))
+    return render_template('index.html', **locals())
 
 @app.route("/random-password")
 def random_password():

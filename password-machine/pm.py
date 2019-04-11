@@ -35,16 +35,45 @@ index_md = os.path.join(templates_folder, 'index.md')
 def index():
     with open(index_md, 'r') as f:
         content = f.read()
-    content = Markup(markdown.markdown(content))
+    content = Markup(markdown.markdown(content, extensions=['markdown.extensions.tables']))
     return render_template('index.html', **locals())
+    
 
-@app.route("/random-password")
+
+@app.route("/random-password", methods=['GET', 'POST'])
 def random_password():
-    upper = request.args.get('upper', default = "", type = str)
-    lower = request.args.get('lower', default = "", type = str)
-    numbers = request.args.get('numbers', default = "", type = str)
-    special = request.args.get('special', default = "", type = str)
-    length = request.args.get('length', default = 32, type = int)
+    if request.method == 'GET':
+        upper = request.args.get('upper', default = "", type = str)
+        lower = request.args.get('lower', default = "", type = str)
+        numbers = request.args.get('numbers', default = "", type = str)
+        special = request.args.get('special', default = "", type = str)
+        length = request.args.get('length', default = 32, type = int)
+
+    elif request.method == 'POST':
+        upper = request.form.get('upper')
+        if not upper:
+            upper = 'false'
+        
+        lower = request.form.get('lower')
+        if not lower:
+            lower = 'false'
+        
+        numbers = request.form.get('numbers')
+        if not numbers:
+            numbers = 'false'
+
+        special = request.form.get('special')
+        if not special:
+            special = 'false'
+        
+        length = request.form.get('length')
+        if length == "":
+            length = 32
+        else:
+            length = int(length)
+
+    else:
+        print('Err: unsupported request method')
 
     if upper.lower() == 'false':
         upper = False

@@ -6,5 +6,44 @@
     </head>
     <body>
         {{ content }}
+        <br/>
+        <form action="{{ url_for('random_password') }}" method="POST">
+            Length <input type = "text" name = "length" placeholder="32"/>
+            <br/>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="upper" value="true" checked> Upper case characters
+                </label>
+            </div>
+            </br/>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="lower" value="true" checked> Lower case characters
+                </label>
+            </div>
+            </br/>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="numbers" value="true" checked> Numbers
+                </label>
+            </div>
+            </br/>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="special" value="true" checked> Special characters
+                </label>
+            </div>
+            </br/>
+            <input type="submit" value="Generate Random Password" />
+        </form>
+      </body>
+        <br/>
+        <br/>
+        <br/>
+        <div class="footerholder">
+            <div class="footer">
+                Source code available on <a href="https://github.com/zloether/password-machine">GitHub</a>.
+            </div>
+        </div>
     </body>
 </html>

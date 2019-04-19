@@ -1,1 +1,1 @@
-web: python passwordmachine/pm.py
+web: python password_machine/pm.py

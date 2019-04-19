@@ -1,1 +1,0 @@
-web: python password_machine/pm.py

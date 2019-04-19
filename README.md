@@ -1,6 +1,6 @@
 # password-machine
 [![Python](https://img.shields.io/badge/python-v3.4+-blue.svg)](https://www.python.org/)
-[![Build Status](https://travis-ci.org/zloether/password-machine.svg?branch=master)](https://travis-ci.org/zloether/password-machine)
+[![Build Status](https://travis-ci.org/zloether/Password-Machine.svg?branch=master)](https://travis-ci.org/zloether/Password-Machine)
 [![Issues](https://img.shields.io/github/issues/zloether/password-machine.svg)](https://github.com/zloether/password-machine/issues)
 [![License](https://img.shields.io/github/license/zloether/password-machine.svg)](https://opensource.org/licenses/MIT)
 

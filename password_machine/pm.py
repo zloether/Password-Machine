@@ -67,7 +67,7 @@ def random_password():
             special = 'false'
         
         length = request.form.get('length')
-        if length == None:
+        if length == None or length=='':
             length = 32
         else:
             length = int(length)
@@ -104,4 +104,4 @@ def random_password():
 # runner
 # -----------------------------------------------------------------------------
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0')

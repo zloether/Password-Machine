@@ -1,0 +1,1 @@
+web: FLASK_APP=password_machine/pm.py python -m flask run --host=0.0.0.0 --port=$PORT

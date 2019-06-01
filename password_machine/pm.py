@@ -100,6 +100,26 @@ def random_password():
 
 
 
+@app.route("/phoenetic", methods=['GET', 'POST'])
+def phoenetic():
+    if request.method == 'GET':
+        number_words = request.args.get('number_words', default = 4, type = int)
+
+    elif request.method == 'POST':
+        number_words = request.form.get('number_words')
+        if length == None or length=='':
+            length = 32
+        else:
+            length = int(length)
+
+    else:
+        print('Err: unsupported request method')
+
+    password = passgenerator.phoenetic(number_words=number_words)
+    return password
+
+
+
 # -----------------------------------------------------------------------------
 # runner
 # -----------------------------------------------------------------------------

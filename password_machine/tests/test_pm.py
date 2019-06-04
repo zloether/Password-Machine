@@ -50,3 +50,21 @@ def test_random_password_post_25(app):
     res = app.post("/random-password", data=data)
     assert res.status_code == 200
     assert len(res.data) == 25
+
+
+
+def test_phoenetic_get(app):
+    res = app.get("/phoenetic")
+    print(res)
+    print(res.status_code)
+    print(res.data)
+    assert res.status_code == 200
+    assert len(res.data) >= 24
+
+
+
+def test_phoenetic_get_5(app):
+    data = dict(number_words=5)
+    res = app.get("/phoenetic", query_string=data)
+    assert res.status_code == 200
+    assert len(res.data) >= 30

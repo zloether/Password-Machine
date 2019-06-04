@@ -1,7 +1,8 @@
 import sys
 import os.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
-from password_machine import pm
+#from password_machine import pm
+import pm
 import pytest
 
 
@@ -49,3 +50,21 @@ def test_random_password_post_25(app):
     res = app.post("/random-password", data=data)
     assert res.status_code == 200
     assert len(res.data) == 25
+
+
+
+def test_phoenetic_get(app):
+    res = app.get("/phoenetic")
+    print(res)
+    print(res.status_code)
+    print(res.data)
+    assert res.status_code == 200
+    assert len(res.data) >= 24
+
+
+
+def test_phoenetic_get_5(app):
+    data = dict(number_words=5)
+    res = app.get("/phoenetic", query_string=data)
+    assert res.status_code == 200
+    assert len(res.data) >= 30

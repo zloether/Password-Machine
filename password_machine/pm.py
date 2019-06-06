@@ -116,7 +116,7 @@ def phoenetic():
         print('Err: unsupported request method')
 
     password = passgenerator.phoenetic(number_words=number_words)
-    return password[1]
+    return password[0] + '\n' + password[1] + '\n'
 
 
 

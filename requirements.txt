@@ -4,5 +4,5 @@ itsdangerous
 Jinja2
 markdown
 MarkupSafe
-passgenerator
+passgenerator>=1.0.4
 Werkzeug
